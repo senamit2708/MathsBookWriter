@@ -3,11 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/teacherLogIn">
+    app:startDestination="@id/mainFragmentInventory">
 
     <fragment
         android:id="@+id/teacherLogIn"
         android:name="com.example.mathsbookwriter.fragment.TeacherLogIn"
         android:label="activity_teacher_login"
         tools:layout="@layout/activity_teacher_login" />
+    <fragment
+        android:id="@+id/mainFragmentInventory"
+        android:name="com.example.mathsbookwriter.fragment.MainFragmentInventory"
+        android:label="activity_main_fragment_inventory"
+        tools:layout="@layout/activity_main_fragment_inventory" />
 </navigation>

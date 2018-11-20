@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "503407752060",
+    "firebase_url": "https://mathsbookwriter.firebaseio.com",
+    "project_id": "mathsbookwriter",
+    "storage_bucket": "mathsbookwriter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503407752060:android:1bd151e5e972f8f0",
+        "android_client_info": {
+          "package_name": "com.example.mathsbookwriter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503407752060-kldo0mi8dqjadljte2bpsvd9f95ffrav.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mathsbookwriter",
+            "certificate_hash": "f2838f9433b390936e7bad8041f1c28741cb37ab"
+          }
+        },
+        {
+          "client_id": "503407752060-4dva8k02o1clp4seq116bk9nli8mvvde.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI8Ih1eXHIMU8nr7GHGVNuUYVgNuJtE_M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503407752060-4dva8k02o1clp4seq116bk9nli8mvvde.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

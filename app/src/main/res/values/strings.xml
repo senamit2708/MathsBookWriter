@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MathsBookWriter</string>
+    <string-array name="main_topic_array">
+        <item>Parties</item>
+        <item>Sales</item>
+        <item>items</item>
+        <item>Dashboard</item>
+
+    </string-array>
 </resources>
