@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorMainCard">#E1BEE7</color>
     <color name="colorMainPage">#FFDE03</color>
+    <color name="colorBackground">#E6E6E6</color>
+    <color name="colorCardView">#F5F5F5</color>
 </resources>

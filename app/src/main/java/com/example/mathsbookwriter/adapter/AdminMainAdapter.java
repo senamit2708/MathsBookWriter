@@ -10,20 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mathsbookwriter.R;
-import com.example.mathsbookwriter.fragment.MainFragmentInventory;
 import com.example.mathsbookwriter.interfaces.MainInventoryInterface;
 import com.example.mathsbookwriter.model.TopicMain;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragmentInventoryAdapter.ViewHolder> {
+public class AdminMainAdapter extends RecyclerView.Adapter<AdminMainAdapter.ViewHolder> {
 
-    private static final String TAG = MainFragmentInventoryAdapter.class.getSimpleName();
+    private static final String TAG = AdminMainAdapter.class.getSimpleName();
     private static final String TOPIC_KEY = "topicKey";
     private Context context;
     //no use of using interface here, just i dont delete it, i will do it later.
@@ -31,7 +29,7 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
 
     private List<TopicMain> topicName;
 
-    public MainFragmentInventoryAdapter(Context context, MainInventoryInterface mInterface) {
+    public AdminMainAdapter(Context context, MainInventoryInterface mInterface) {
         this.context = context;
         this.mInterface = mInterface;
     }
@@ -39,8 +37,9 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_main_fragment_inventory,parent,false);
-        return new ViewHolder(itemView);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_admin_main, parent, false);
+        context = parent.getContext();
+        return new ViewHolder(view);
     }
 
     @Override
@@ -61,7 +60,7 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
     }
 
     public void setTopic(List<TopicMain> topicName) {
-            this.topicName = topicName;
+        this.topicName = topicName;
         notifyDataSetChanged();
     }
 
@@ -85,18 +84,17 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
             Bundle bundle = new Bundle();
             bundle.putString(TOPIC_KEY, topic);
 //            mInterface.funLoadTopic(topic);
-            if (topic.equals("Parties")){
-                Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_partiesViewFragment, bundle);
-            }else if (topic.equals("Sales")){
+            if (topic.equals("Products")){
+                Navigation.findNavController(view).navigate(R.id.action_adminMainFragment_to_adminProductListView, bundle);
+            }else if (topic.equals("Collection 2")){
 
-            }else if (topic.equals("Items")){
+            }else if (topic.equals("Collection 3")){
 
-            }else if (topic.equals("Admin")){
-                Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_adminMainFragment, bundle);
+            }else if (topic.equals("Collection 4")){
+
             }else {
                 Log.i(TAG, "No option selected from given list");
             }
-
         }
     }
 }

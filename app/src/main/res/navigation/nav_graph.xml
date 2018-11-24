@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_mainFragmentInventory_to_partiesViewFragment"
             app:destination="@id/partiesViewFragment" />
+        <action
+            android:id="@+id/action_mainFragmentInventory_to_adminMainFragment"
+            app:destination="@id/adminMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/partiesViewFragment"
@@ -39,5 +42,40 @@
         <action
             android:id="@+id/action_partyDetialFragment_to_partiesAddFragment"
             app:destination="@id/partiesAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminMainFragment"
+        android:name="com.example.mathsbookwriter.fragment.AdminMainFragment"
+        android:label="activity_admin_main_fragment"
+        tools:layout="@layout/activity_admin_main_fragment" >
+        <action
+            android:id="@+id/action_adminMainFragment_to_adminProductListView"
+            app:destination="@id/adminProductListView" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminProductListView"
+        android:name="com.example.mathsbookwriter.fragment.AdminProductListView"
+        android:label="activity_admin_product_listview"
+        tools:layout="@layout/activity_admin_product_listview" >
+        <action
+            android:id="@+id/action_adminProductListView_to_adminAddProductFragment"
+            app:destination="@id/adminAddProductFragment" />
+        <action
+            android:id="@+id/action_adminProductListView_to_productDetails"
+            app:destination="@id/productDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminAddProductFragment"
+        android:name="com.example.mathsbookwriter.fragment.AdminAddProductFragment"
+        android:label="activity_admin_add_product"
+        tools:layout="@layout/activity_admin_add_product" />
+    <fragment
+        android:id="@+id/productDetails"
+        android:name="com.example.mathsbookwriter.fragment.ProductDetails"
+        android:label="activity_product_details"
+        tools:layout="@layout/activity_product_details" >
+        <action
+            android:id="@+id/action_productDetails_to_adminAddProductFragment"
+            app:destination="@id/adminAddProductFragment" />
     </fragment>
 </navigation>
