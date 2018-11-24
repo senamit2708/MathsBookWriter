@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.mathsbookwriter.R;
 import com.example.mathsbookwriter.adapter.MainFragmentInventoryAdapter;
+import com.example.mathsbookwriter.interfaces.MainInventoryInterface;
 import com.example.mathsbookwriter.model.TopicMain;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MainFragmentInventory extends Fragment {
+public class MainFragmentInventory extends Fragment implements MainInventoryInterface {
 
     private static final String TAG = MainFragmentInventory.class.getSimpleName();
     private Context context;
@@ -47,7 +48,7 @@ public class MainFragmentInventory extends Fragment {
 
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mLayoutManager = new GridLayoutManager(context,2);
-        mAdapter = new MainFragmentInventoryAdapter(context);
+        mAdapter = new MainFragmentInventoryAdapter(context, this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -55,8 +56,13 @@ public class MainFragmentInventory extends Fragment {
         topicName.add(new TopicMain("Parties",R.drawable.parties_one));
         topicName.add(new TopicMain("Sales",R.drawable.sale_one));
         topicName.add(new TopicMain("Items",R.drawable.items_one));
-        topicName.add(new TopicMain("Dashboard",R.drawable.dashboard_one));
+        topicName.add(new TopicMain("Admin",R.drawable.dashboard_one));
 
         mAdapter.setTopic(topicName);
+    }
+
+    @Override
+    public void funLoadTopic(String topic) {
+
     }
 }

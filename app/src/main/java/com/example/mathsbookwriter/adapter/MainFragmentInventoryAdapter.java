@@ -1,6 +1,8 @@
 package com.example.mathsbookwriter.adapter;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,21 +10,29 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mathsbookwriter.R;
+import com.example.mathsbookwriter.fragment.MainFragmentInventory;
+import com.example.mathsbookwriter.interfaces.MainInventoryInterface;
 import com.example.mathsbookwriter.model.TopicMain;
 
 import java.util.List;
 import java.util.zip.Inflater;
 
 import androidx.annotation.NonNull;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragmentInventoryAdapter.ViewHolder> {
 
+    private static final String TAG = MainFragmentInventoryAdapter.class.getSimpleName();
+    private static final String TOPIC_KEY = "topicKey";
     private Context context;
+    private MainInventoryInterface mInterface;
+
     private List<TopicMain> topicName;
 
-    public MainFragmentInventoryAdapter(Context context) {
+    public MainFragmentInventoryAdapter(Context context, MainInventoryInterface mInterface) {
         this.context = context;
+        this.mInterface = mInterface;
     }
 
     @NonNull
@@ -63,10 +73,28 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
             super(itemView);
             txtTitle = itemView.findViewById(R.id.txtRecyclerTitle);
             txtImageView = itemView.findViewById(R.id.txtImageView);
+            itemView.setOnClickListener(this);
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            String topic = topicName.get(adapterPosition).getTopicName();
+            Log.i(TAG, "adapter position selected is "+adapterPosition);
+            Bundle bundle = new Bundle();
+            bundle.putString(TOPIC_KEY, topic);
+//            mInterface.funLoadTopic(topic);
+            if (topic.equals("Parties")){
+                Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_partiesViewFragment, bundle);
+            }else if (topic.equals("Sales")){
+
+            }else if (topic.equals("Items")){
+
+            }else if (topic.equals("Admin")){
+
+            }else {
+                Log.i(TAG, "No option selected from given list");
+            }
 
         }
     }

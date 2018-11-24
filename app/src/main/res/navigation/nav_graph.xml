@@ -6,13 +6,38 @@
     app:startDestination="@id/mainFragmentInventory">
 
     <fragment
-        android:id="@+id/teacherLogIn"
-        android:name="com.example.mathsbookwriter.fragment.TeacherLogIn"
-        android:label="activity_teacher_login"
-        tools:layout="@layout/activity_teacher_login" />
-    <fragment
         android:id="@+id/mainFragmentInventory"
         android:name="com.example.mathsbookwriter.fragment.MainFragmentInventory"
         android:label="activity_main_fragment_inventory"
-        tools:layout="@layout/activity_main_fragment_inventory" />
+        tools:layout="@layout/activity_main_fragment_inventory" >
+        <action
+            android:id="@+id/action_mainFragmentInventory_to_partiesViewFragment"
+            app:destination="@id/partiesViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partiesViewFragment"
+        android:name="com.example.mathsbookwriter.fragment.PartiesViewFragment"
+        android:label="activity_parties_view"
+        tools:layout="@layout/activity_parties_view">
+        <action
+            android:id="@+id/action_partiesViewFragment_to_partiesAddFragment"
+            app:destination="@id/partiesAddFragment" />
+        <action
+            android:id="@+id/action_partiesViewFragment_to_partyDetialFragment"
+            app:destination="@id/partyDetialFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partiesAddFragment"
+        android:name="com.example.mathsbookwriter.fragment.PartiesAddFragment"
+        android:label="activity_parties_add"
+        tools:layout="@layout/activity_parties_add" />
+    <fragment
+        android:id="@+id/partyDetialFragment"
+        android:name="com.example.mathsbookwriter.fragment.PartyDetialFragment"
+        android:label="activity_party_detail"
+        tools:layout="@layout/activity_party_detail" >
+        <action
+            android:id="@+id/action_partyDetialFragment_to_partiesAddFragment"
+            app:destination="@id/partiesAddFragment" />
+    </fragment>
 </navigation>
