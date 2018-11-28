@@ -76,3 +76,5 @@ public class PartiesModel {
         this.date = date;
     }
 }
+
+

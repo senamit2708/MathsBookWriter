@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_mainFragmentInventory_to_adminMainFragment"
             app:destination="@id/adminMainFragment" />
+        <action
+            android:id="@+id/action_mainFragmentInventory_to_saleAddFragment"
+            app:destination="@id/saleAddFragment" />
     </fragment>
     <fragment
         android:id="@+id/partiesViewFragment"
@@ -77,5 +80,36 @@
         <action
             android:id="@+id/action_productDetails_to_adminAddProductFragment"
             app:destination="@id/adminAddProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saleAddFragment"
+        android:name="com.example.mathsbookwriter.fragment.SaleAddFragment"
+        android:label="activity_sale_add"
+        tools:layout="@layout/activity_sale_add" >
+        <action
+            android:id="@+id/action_saleAddFragment_to_partyNameListFragment"
+            app:destination="@id/partyNameListFragment" />
+        <action
+            android:id="@+id/action_saleAddFragment_to_saleAddProduct"
+            app:destination="@id/saleAddProduct" />
+    </fragment>
+    <fragment
+        android:id="@+id/saleAddItem"
+        android:name="com.example.mathsbookwriter.fragment.SaleAddItem"
+        android:label="activity_sale_add_item"
+        tools:layout="@layout/activity_sale_add_item" />
+    <fragment
+        android:id="@+id/partyNameListFragment"
+        android:name="com.example.mathsbookwriter.fragment.PartyNameListFragment"
+        android:label="activity_party_name_list"
+        tools:layout="@layout/activity_party_name_list" />
+    <fragment
+        android:id="@+id/saleAddProduct"
+        android:name="com.example.mathsbookwriter.fragment.SaleAddProduct"
+        android:label="activity_sale_add_product"
+        tools:layout="@layout/activity_sale_add_product" >
+        <action
+            android:id="@+id/action_saleAddProduct_to_saleAddItem"
+            app:destination="@id/saleAddItem" />
     </fragment>
 </navigation>

@@ -11,7 +11,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Source;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,8 @@ public class PartiesViewModel extends AndroidViewModel {
     private MediatorLiveData<List<PartiesModel>> partiesModelLiveData;
     private MutableLiveData<PartiesModel> partyLiveData;
 
+    private String partyName= null;
+
     public PartiesViewModel(@NonNull Application application) {
         super(application);
     }
@@ -40,11 +41,11 @@ public class PartiesViewModel extends AndroidViewModel {
         partiesModelLiveData = new MediatorLiveData<>();
         final List<PartiesModel> partiesModels = new ArrayList<>();
         //to load cache..its trail ..lets see it will work good or not
-        Source source = Source.CACHE;
+//        Source source = Source.CACHE;
 
         db.collection("mainCollection").document("partyList")
                 .collection("parties")
-                .get(source)
+                .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -81,4 +82,16 @@ public class PartiesViewModel extends AndroidViewModel {
         return partyLiveData;
 
     }
+
+    public String getPartyNameForSale(){
+        Log.i(TAG, "party name in get method is "+partyName);
+        return partyName;
+    }
+
+    public void setPartyNameforSale(String partyName) {
+        Log.i(TAG, "party name is set method is "+partyName);
+        this.partyName = partyName;
+    }
 }
+
+

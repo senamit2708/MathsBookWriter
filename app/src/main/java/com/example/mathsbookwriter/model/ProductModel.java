@@ -16,9 +16,18 @@ public class ProductModel {
     private float sellPriceThree;
     private String description;
 
+    //default constructor for safety
     public ProductModel() {
     }
 
+    public ProductModel(String productNumber, String productName, int availableQuantity, float sellPriceOne) {
+        this.productNumber = productNumber;
+        this.productName = productName;
+        this.availableQuantity = availableQuantity;
+        this.sellPriceOne = sellPriceOne;
+    }
+
+    //this is used to load and retrive details of product from firestore
     public ProductModel(String productNumber, String productName, String category, String brand, int availableQuantity, float purchasePrice, float sellPriceOne, float sellPriceTwo, float sellPriceThree, String description) {
         this.productNumber = productNumber;
         this.productName = productName;

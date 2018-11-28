@@ -25,6 +25,7 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
 
     private static final String TAG = MainFragmentInventoryAdapter.class.getSimpleName();
     private static final String TOPIC_KEY = "topicKey";
+    private static final String STATUS = "status";
     private Context context;
     //no use of using interface here, just i dont delete it, i will do it later.
     private MainInventoryInterface mInterface;
@@ -82,16 +83,21 @@ public class MainFragmentInventoryAdapter extends RecyclerView.Adapter<MainFragm
             int adapterPosition = getAdapterPosition();
             String topic = topicName.get(adapterPosition).getTopicName();
             Log.i(TAG, "adapter position selected is "+adapterPosition);
-            Bundle bundle = new Bundle();
-            bundle.putString(TOPIC_KEY, topic);
+            Bundle bundle;
 //            mInterface.funLoadTopic(topic);
             if (topic.equals("Parties")){
+                bundle = new Bundle();
+                bundle.putString(TOPIC_KEY, topic);
                 Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_partiesViewFragment, bundle);
             }else if (topic.equals("Sales")){
-
+                bundle = new Bundle();
+                bundle.putInt(STATUS, 1);
+                Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_saleAddFragment, bundle);
             }else if (topic.equals("Items")){
 
             }else if (topic.equals("Admin")){
+                bundle = new Bundle();
+                bundle.putString(TOPIC_KEY, topic);
                 Navigation.findNavController(view).navigate(R.id.action_mainFragmentInventory_to_adminMainFragment, bundle);
             }else {
                 Log.i(TAG, "No option selected from given list");

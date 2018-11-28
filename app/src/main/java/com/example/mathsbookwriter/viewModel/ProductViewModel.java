@@ -32,6 +32,13 @@ public class ProductViewModel extends AndroidViewModel {
     private MutableLiveData<ProductModel> productDetailLiveData;
 
     private ProductModel model;
+    private ProductModel productModelSale = new ProductModel();
+    private List<ProductModel> productModelList = new ArrayList<>();
+
+    private String productNumber = null;
+    private String productName = null;
+    private int quantity = 0;
+    private float price =0;
 
     public ProductViewModel(@NonNull Application application) {
         super(application);
@@ -85,4 +92,34 @@ public class ProductViewModel extends AndroidViewModel {
     public ProductModel getProductDetailForEdit() {
         return model;
     }
+
+
+
+    public ProductModel getProductNumberForSale(){
+        return productModelSale;
+    }
+
+    //useless now..i think so
+    public void setProductNumberForSale(String productNumber, String productName, int quantity, float price) {
+        this.productNumber = productNumber;
+        this.productName = productName;
+        this.quantity=quantity;
+        this.price = price;
+    }
+
+    //details for showing the sale add items
+    public void setProdDetailsForSale(ProductModel model) {
+        this.productModelSale = model;
+    }
+
+    //adding each item for sale
+    public void setProductItem(ProductModel newItem) {
+        productModelList.add(newItem);
+    }
+
+    //for showing product items into sale add fragment
+    public List<ProductModel> getProductItem(){
+        return productModelList;
+    }
+
 }
