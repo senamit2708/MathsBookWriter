@@ -194,6 +194,8 @@ public class SaleAddFragment extends Fragment {
         for (ProductModel i : productModelList)
             map.put(i.toString(), i);
 
+
+
         db.collection("mainCollection").document("BillDocument")
                 .collection("BillCollection")
                 .document(billNumber)

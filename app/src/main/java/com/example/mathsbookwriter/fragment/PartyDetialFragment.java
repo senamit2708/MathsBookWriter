@@ -44,8 +44,8 @@ public class PartyDetialFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel = ViewModelProviders.of(getActivity()).get(PartiesViewModel.class);
-        partyName = getArguments().getString(PARTY_NAME);
-        Log.i(TAG, "the party name is "+partyName);
+//        partyName = getArguments().getString(PARTY_NAME);
+//        Log.i(TAG, "the party name is "+partyName);
     }
 
     @Nullable
@@ -66,28 +66,14 @@ public class PartyDetialFragment extends Fragment {
         txtMobileNumber = view.findViewById(R.id.txtMobileNumber);
         btnEditParty = view.findViewById(R.id.btnEditParty);
 
-
-        mViewModel.getPartyDetails(partyName).observe(this, new Observer<PartiesModel>() {
-            @Override
-            public void onChanged(PartiesModel partiesModel) {
-                if (partiesModel!= null){
-                    model = partiesModel;
-                    txtPartyName.setText(partiesModel.getPartyName());
-                    txtRegistrationNumber.setText(partiesModel.getRegistrationNumber());
-                    txtAddress.setText(partiesModel.getAddress());
-                    txtMobileNumber.setText(partiesModel.getMobileNumber());
-                }else {
-                    Log.i(TAG, "no details found for this party name");
-                }
-
-            }
-        });
+       model = mViewModel.getParty();
+       loadData();
 
         btnEditParty.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
-                bundle.putString(PARTY_NAME, partyName);
+                bundle.putString(PARTY_NAME, model.getPartyName());
                 bundle.putString(REGISTRATION_NUMBER, model.getRegistrationNumber());
                 bundle.putString(ADDRESS, model.getAddress());
                 bundle.putString(MOBILE_NUMBER, model.getMobileNumber());
@@ -96,5 +82,14 @@ public class PartyDetialFragment extends Fragment {
             }
         });
 
+    }
+
+    private void loadData() {
+        if (model!=null){
+            txtPartyName.setText(model.getPartyName());
+            txtRegistrationNumber.setText(model.getRegistrationNumber());
+            txtAddress.setText(model.getAddress());
+            txtMobileNumber.setText(model.getMobileNumber());
+        }
     }
 }

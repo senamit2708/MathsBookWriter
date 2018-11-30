@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.mathsbookwriter.R;
+import com.example.mathsbookwriter.interfaces.PartyInterface;
 import com.example.mathsbookwriter.model.PartiesModel;
 
 import java.util.List;
@@ -21,8 +22,14 @@ public class PartiesViewAdapter extends RecyclerView.Adapter<PartiesViewAdapter.
     private static final String TAG = PartiesViewAdapter.class.getSimpleName();
     private static final String PARTY_NAME = "party_name";
     private Context context;
+    private PartyInterface mInterface;
 
     private List<PartiesModel> partiesModels;
+
+    public PartiesViewAdapter(Context context, PartyInterface mInterface) {
+        this.context = context;
+        this.mInterface = mInterface;
+    }
 
     public PartiesViewAdapter(Context context) {
         this.context = context;
@@ -73,10 +80,8 @@ public class PartiesViewAdapter extends RecyclerView.Adapter<PartiesViewAdapter.
         @Override
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
-            String partyName = partiesModels.get(adapterPosition).getPartyName();
-            Bundle bundle = new Bundle();
-            bundle.putString(PARTY_NAME, partyName);
-            Navigation.findNavController(view).navigate(R.id.action_partiesViewFragment_to_partyDetialFragment, bundle);
+            PartiesModel party = partiesModels.get(adapterPosition);
+           mInterface.funPartyDetails(party);
         }
     }
 }

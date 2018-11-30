@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.example.mathsbookwriter.R;
 import com.example.mathsbookwriter.adapter.PartiesViewAdapter;
+import com.example.mathsbookwriter.interfaces.PartyInterface;
 import com.example.mathsbookwriter.model.PartiesModel;
 import com.example.mathsbookwriter.viewModel.PartiesViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,7 +24,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PartiesViewFragment extends Fragment {
+public class PartiesViewFragment extends Fragment implements PartyInterface {
 
     private static final String TAG = PartiesViewFragment.class.getSimpleName();
     private static final String CHECK_DETAILS = "check_details";
@@ -59,7 +60,7 @@ public class PartiesViewFragment extends Fragment {
         fabAddParties = view.findViewById(R.id.fabAddParties);
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mLayoutManager = new LinearLayoutManager(context);
-        mAdapter = new PartiesViewAdapter(context);
+        mAdapter = new PartiesViewAdapter(context, this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
 
@@ -80,6 +81,13 @@ public class PartiesViewFragment extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.action_partiesViewFragment_to_partiesAddFragment, bundle);
             }
         });
+
+    }
+
+    @Override
+    public void funPartyDetails(PartiesModel party) {
+        mViewModel.setParty(party);
+        Navigation.findNavController(getActivity(), R.id.fabAddParties).navigate(R.id.action_partiesViewFragment_to_partyDetialFragment);
 
     }
 }
