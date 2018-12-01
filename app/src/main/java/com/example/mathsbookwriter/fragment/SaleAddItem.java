@@ -80,8 +80,11 @@ public class SaleAddItem extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!TextUtils.isEmpty(txtOrderedQuantity.getText())){
-                    ProductModel newItem = new ProductModel(model.getProductNumber(), model.getProductName(),
+                    ProductModel newItem = new ProductModel(model.getProductNumber(),
+                            model.getProductName(),
+                            model.getAvailableQuantity(),
                             Integer.parseInt(txtOrderedQuantity.getText().toString()),
+                            model.getSellPriceOne(),
                             Float.valueOf(txtPrice.getText().toString()));
                     mViewModel.setProductItem(newItem);
                     Navigation.findNavController(v).popBackStack(R.id.saleAddProduct,true);

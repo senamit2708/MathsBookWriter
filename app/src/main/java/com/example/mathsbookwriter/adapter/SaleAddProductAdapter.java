@@ -79,10 +79,12 @@ public class SaleAddProductAdapter extends RecyclerView.Adapter<SaleAddProductAd
             int adapterPosition = getAdapterPosition();
             String productNumber = productModels.get(adapterPosition).getProductNumber();
             String productName = productModels.get(adapterPosition).getProductName();
-            int quantity = productModels.get(adapterPosition).getAvailableQuantity();
-            float price = productModels.get(adapterPosition).getSellPriceOne();
-            mInterface.funProductNumber(productNumber, productName, quantity, price);
-            ProductModel model = new ProductModel(productNumber, productName, quantity, price);
+            int availableQuantity = productModels.get(adapterPosition).getAvailableQuantity();
+            int orderedQuantity = productModels.get(adapterPosition).getOrderedQuantity();
+            float sellingpriceOne = productModels.get(adapterPosition).getSellPriceOne();
+            float sellingPrice = productModels.get(adapterPosition).getSellingPrice();
+            mInterface.funProductNumber(productNumber, productName,orderedQuantity, sellingPrice);
+            ProductModel model = new ProductModel(productNumber, productName, availableQuantity, orderedQuantity, sellingpriceOne,sellingPrice);
             mInterface.funProductDetails(model);
 
         }

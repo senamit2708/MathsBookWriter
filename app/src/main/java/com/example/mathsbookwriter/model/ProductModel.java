@@ -16,15 +16,29 @@ public class ProductModel {
     private float sellPriceThree;
     private String description;
 
+    //for entering product before billing
+    private int orderedQuantity;
+    private float sellingPrice;
+
     //default constructor for safety
     public ProductModel() {
     }
 
-    public ProductModel(String productNumber, String productName, int availableQuantity, float sellPriceOne) {
+    public ProductModel(String productNumber, String productName, int orderedQuantity, float sellingPrice) {
+        this.productNumber = productNumber;
+        this.productName = productName;
+        this.orderedQuantity = orderedQuantity;
+        this.sellingPrice = sellingPrice;
+    }
+
+    public ProductModel(String productNumber, String productName, int availableQuantity, int orderedQuantity,
+                        float sellPriceOne, float sellingPrice) {
         this.productNumber = productNumber;
         this.productName = productName;
         this.availableQuantity = availableQuantity;
+        this.orderedQuantity = orderedQuantity;
         this.sellPriceOne = sellPriceOne;
+        this.sellingPrice = sellingPrice;
     }
 
     //this is used to load and retrive details of product from firestore
@@ -120,5 +134,21 @@ public class ProductModel {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public int getOrderedQuantity() {
+        return orderedQuantity;
+    }
+
+    public void setOrderedQuantity(int orderedQuantity) {
+        this.orderedQuantity = orderedQuantity;
+    }
+
+    public float getSellingPrice() {
+        return sellingPrice;
+    }
+
+    public void setSellingPrice(float sellingPrice) {
+        this.sellingPrice = sellingPrice;
     }
 }

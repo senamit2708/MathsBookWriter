@@ -35,17 +35,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
 
-    <ImageButton
-        android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView22"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView22"
-        app:srcCompat="@drawable/ic_search" />
-
     <TextView
         android:id="@+id/textView24"
         android:layout_width="wrap_content"
@@ -74,13 +63,13 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/txtDate"
         app:layout_constraintEnd_toStartOf="@+id/txtBillNumber" />
 
-    <EditText
+    <TextView
         android:id="@+id/txtBillNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:ems="10"
+        android:text="bill no."
         android:inputType="textPersonName"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -119,16 +108,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/divider5" />
 
-    <Button
-        android:id="@+id/btnAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Add Items"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView24"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <TextView
         android:id="@+id/txtPartyName"
         android:layout_width="wrap_content"
@@ -146,19 +125,18 @@
         android:layout_marginLeft="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:text="Submit"
+        android:text="Done"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtTotalPrice"
         app:layout_constraintTop_toBottomOf="@+id/divider6" />
 
     <TextView
-        android:id="@+id/textView25"
+        android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:text="Total Price: "
         app:layout_constraintBottom_toBottomOf="parent"
@@ -171,8 +149,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:text="TextView"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView25"
-        app:layout_constraintStart_toEndOf="@+id/textView25" />
+        android:text="price"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView28"
+        app:layout_constraintStart_toEndOf="@+id/textView28" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

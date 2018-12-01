@@ -112,6 +112,10 @@ public class PartiesViewModel extends AndroidViewModel {
     public PartiesModel getParty() {
         return party;
     }
+
+    public void clearPartyNameForSale() {
+        this.partyName = null;
+    }
 }
 
 

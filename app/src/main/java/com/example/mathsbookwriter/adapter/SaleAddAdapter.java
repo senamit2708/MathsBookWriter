@@ -34,8 +34,8 @@ public class SaleAddAdapter extends RecyclerView.Adapter<SaleAddAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         if (productItem!= null){
             holder.txtProductName.setText(productItem.get(position).getProductName());
-            holder.txtQuantity.setText(String.valueOf(productItem.get(position).getAvailableQuantity()));
-            holder.txtPrice.setText(String.valueOf(productItem.get(position).getSellPriceOne()));
+            holder.txtQuantity.setText(String.valueOf(productItem.get(position).getOrderedQuantity()));
+            holder.txtPrice.setText(String.valueOf(productItem.get(position).getSellingPrice()));
         }
     }
 

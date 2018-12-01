@@ -92,6 +92,9 @@
         <action
             android:id="@+id/action_saleAddFragment_to_saleAddProduct"
             app:destination="@id/saleAddProduct" />
+        <action
+            android:id="@+id/action_saleAddFragment_to_newBillDetail"
+            app:destination="@id/newBillDetail" />
     </fragment>
     <fragment
         android:id="@+id/saleAddItem"
@@ -112,4 +115,9 @@
             android:id="@+id/action_saleAddProduct_to_saleAddItem"
             app:destination="@id/saleAddItem" />
     </fragment>
+    <fragment
+        android:id="@+id/newBillDetail"
+        android:name="com.example.mathsbookwriter.fragment.NewBillDetail"
+        android:label="activity_new_bill_details"
+        tools:layout="@layout/activity_new_bill_details" />
 </navigation>

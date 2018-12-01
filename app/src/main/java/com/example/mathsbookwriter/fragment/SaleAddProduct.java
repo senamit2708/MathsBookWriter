@@ -79,5 +79,4 @@ public class SaleAddProduct extends Fragment implements ProductNameInterface {
         mViewModel.setProdDetailsForSale(model);
         Navigation.findNavController(getActivity(),R.id.btnSubmit).navigate(R.id.action_saleAddProduct_to_saleAddItem);
     }
-
 }

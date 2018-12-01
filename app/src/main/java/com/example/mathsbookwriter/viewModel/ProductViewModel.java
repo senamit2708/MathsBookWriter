@@ -122,4 +122,7 @@ public class ProductViewModel extends AndroidViewModel {
         return productModelList;
     }
 
+    public void clearProductItem() {
+        productModelList.clear();
+    }
 }

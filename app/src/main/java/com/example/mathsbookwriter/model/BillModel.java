@@ -8,20 +8,22 @@ import java.util.List;
 public class BillModel {
     String billNumber;
     String partyName;
-    List<String> productModels;
+    String billingDate;
+    float totalPrice;
+    List<ProductModel> productList;
 
 
 
     public BillModel() {
     }
 
-    public BillModel(String billNumber, String partyName, List<String> productModels) {
+    public BillModel(String billNumber, String partyName, String billingDate,float totalPrice, List<ProductModel> productList) {
         this.billNumber = billNumber;
         this.partyName = partyName;
-        this.productModels = productModels;
+        this.billingDate = billingDate;
+        this.totalPrice = totalPrice;
+        this.productList = productList;
     }
-
-
 
     public String getBillNumber() {
         return billNumber;
@@ -39,11 +41,27 @@ public class BillModel {
         this.partyName = partyName;
     }
 
-    public List<String> getProductModels() {
-        return productModels;
+    public String getBillingDate() {
+        return billingDate;
     }
 
-    public void setProductModels(List<String> productModels) {
-        this.productModels = productModels;
+    public void setBillingDate(String billingDate) {
+        this.billingDate = billingDate;
+    }
+
+    public List<ProductModel> getProductModels() {
+        return productList;
+    }
+
+    public void setProductModels(List<ProductModel> productList) {
+        this.productList = productList;
+    }
+
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(float totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
