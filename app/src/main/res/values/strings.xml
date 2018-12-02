@@ -7,4 +7,12 @@
         <item>Dashboard</item>
 
     </string-array>
+    
+    <string-array name="bill_Status">
+        <item>Initial</item>
+        <item>Confirmed</item>
+        <item>Shipped</item>
+        <item>Complete</item>
+        <item>Closed</item>
+    </string-array>
 </resources>

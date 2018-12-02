@@ -48,6 +48,7 @@ public class SaleAddFragment extends Fragment {
 
     private static final String TAG = SaleAddFragment.class.getSimpleName();
     private static final String STATUS = "status";
+    private static final String BILL_STATUS = "initial";
     private static final String PARTY_NAME = "party_name";
     private static final String BILL_NUMBER ="bill_number";
     private PartiesViewModel mViewModel;
@@ -167,8 +168,7 @@ public class SaleAddFragment extends Fragment {
         Log.i(TAG, "inside onsubmit method 2");
         final String billNumber = txtBillNumber.getText().toString();
         partyName = txtPartyName.getText().toString();
-        String date = txtDate.getText().toString();
-
+        String date = new SimpleDateFormat("dd-MM-YYYY", Locale.getDefault()).format(new Date());
         //product details entry
         final List<OrderedProductModel> newProductModel = new ArrayList<>();
         for (int i=0; i<productModelList.size(); i++){
@@ -185,6 +185,7 @@ public class SaleAddFragment extends Fragment {
         product.put("partyName",partyName);
         product.put("billingDate",date);
         product.put("totalPrice",totalPrice);
+        product.put("status",BILL_STATUS);
 
         db.collection("mainCollection").document("BillDocument")
                 .collection("BillCollection")

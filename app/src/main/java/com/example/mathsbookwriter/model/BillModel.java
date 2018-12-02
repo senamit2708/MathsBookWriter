@@ -10,6 +10,7 @@ public class BillModel {
     String partyName;
     String billingDate;
     float totalPrice;
+    String status;
     List<ProductModel> productList;
 
 
@@ -17,11 +18,12 @@ public class BillModel {
     public BillModel() {
     }
 
-    public BillModel(String billNumber, String partyName, String billingDate,float totalPrice, List<ProductModel> productList) {
+    public BillModel(String billNumber, String partyName, String billingDate,float totalPrice,String status, List<ProductModel> productList) {
         this.billNumber = billNumber;
         this.partyName = partyName;
         this.billingDate = billingDate;
         this.totalPrice = totalPrice;
+        this.status = status;
         this.productList = productList;
     }
 
@@ -63,5 +65,13 @@ public class BillModel {
 
     public void setTotalPrice(float totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

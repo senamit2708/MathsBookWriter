@@ -120,4 +120,27 @@
         android:name="com.example.mathsbookwriter.fragment.NewBillDetail"
         android:label="activity_new_bill_details"
         tools:layout="@layout/activity_new_bill_details" />
+    <fragment
+        android:id="@+id/billListFragment"
+        android:name="com.example.mathsbookwriter.fragment.BillListFragment"
+        android:label="activity_bill_list"
+        tools:layout="@layout/activity_bill_list" >
+        <action
+            android:id="@+id/action_billListFragment_to_billDetails"
+            app:destination="@id/billDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/billDetails"
+        android:name="com.example.mathsbookwriter.fragment.BillDetails"
+        android:label="activity_bill_detail"
+        tools:layout="@layout/activity_bill_detail" />
+    <fragment
+        android:id="@+id/billMainFragment"
+        android:name="com.example.mathsbookwriter.fragment.BillMainFragment"
+        android:label="activity_bill_main"
+        tools:layout="@layout/activity_bill_main" >
+        <action
+            android:id="@+id/action_billMainFragment_to_billListFragment"
+            app:destination="@id/billListFragment" />
+    </fragment>
 </navigation>
