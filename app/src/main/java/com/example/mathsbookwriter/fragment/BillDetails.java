@@ -15,14 +15,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mathsbookwriter.R;
+import com.example.mathsbookwriter.adapter.BillProductShowAdapter;
 import com.example.mathsbookwriter.adapter.SaleAddAdapter;
 import com.example.mathsbookwriter.model.BillModel;
+import com.example.mathsbookwriter.model.OrderedProductModel;
 import com.example.mathsbookwriter.model.ProductModel;
 import com.example.mathsbookwriter.viewModel.BillViewModel;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -54,7 +61,7 @@ public class BillDetails extends Fragment implements AdapterView.OnItemSelectedL
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private SaleAddAdapter mAdapter;
+    private BillProductShowAdapter mAdapter;
 
     private String billNumber;
     private BillModel bill;
@@ -90,7 +97,7 @@ public class BillDetails extends Fragment implements AdapterView.OnItemSelectedL
 
         recyclerView = view.findViewById(R.id.recyclerview);
         mLayoutManager = new LinearLayoutManager(context);
-        mAdapter = new SaleAddAdapter();
+        mAdapter = new BillProductShowAdapter();
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
@@ -133,12 +140,33 @@ public class BillDetails extends Fragment implements AdapterView.OnItemSelectedL
         txtDate.setText(billModel.getBillingDate());
         txtTotalPrice.setText(String.valueOf(billModel.getTotalPrice()));
         txtStatus.setText(billModel.getStatus());
-        List<ProductModel> model = billModel.getProductModels();
-        for (int i=0; i<model.size();i++){
-            Log.i(TAG, "product list is "+model.get(i).getProductName());
+        List<OrderedProductModel> model = billModel.getProductList();
+        mAdapter.setProductItem(model);
+//        for (int i=0; i<billModel.size();i++){
+//            Log.i(TAG, "product list is "+model.get(i).getProductName());
+//
+//        }
+//        List<ProductModel> model = new ArrayList<>();
+//        int size = (billModel.getProductModels()).size();
+//        Log.i(TAG, "the count of product is "+size);
+//        for (int i=0; i<size; i++){
+//            ProductModel product = billModel.getProductModels().get(i);
+//            model.add(product);
+//            Log.i(TAG, "the size of model is after each entry is "+model.size());
+//        }
+//        db.collection("mainCollection").document("BillDocument")
+//                .collection("BillCollection").document(billNumber)
+//                .get()
+//                .addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                    @Override
+//                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                      BillModel billDoc = documentSnapshot.toObject(BillModel.class);
+//                      List<OrderedProductModel> productList = billDoc.getProductList();
+//                      mAdapter.setProductItem(productList);
+//                    }
+//                });
 
-        }
-        mAdapter.setProductItem(billModel.getProductModels());
+
     }
 
 

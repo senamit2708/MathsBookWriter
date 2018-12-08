@@ -17,6 +17,9 @@ public class OrderedProductModel {
         this.sellingPrice = sellingPrice;
     }
 
+    public OrderedProductModel() {
+    }
+
     public String getProductNumber() {
         return productNumber;
     }

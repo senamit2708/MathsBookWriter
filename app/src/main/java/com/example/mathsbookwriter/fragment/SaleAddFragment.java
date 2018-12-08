@@ -48,7 +48,7 @@ public class SaleAddFragment extends Fragment {
 
     private static final String TAG = SaleAddFragment.class.getSimpleName();
     private static final String STATUS = "status";
-    private static final String BILL_STATUS = "initial";
+    private static final String BILL_STATUS = "Initial";
     private static final String PARTY_NAME = "party_name";
     private static final String BILL_NUMBER ="bill_number";
     private PartiesViewModel mViewModel;

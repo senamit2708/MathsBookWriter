@@ -12,8 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.mathsbookwriter.R;
+import com.example.mathsbookwriter.adapter.BillProductShowAdapter;
 import com.example.mathsbookwriter.adapter.SaleAddAdapter;
 import com.example.mathsbookwriter.model.BillModel;
+import com.example.mathsbookwriter.model.OrderedProductModel;
 import com.example.mathsbookwriter.model.ProductModel;
 import com.example.mathsbookwriter.viewModel.BillViewModel;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -45,7 +47,7 @@ public class NewBillDetail extends Fragment {
 
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager mLayoutManager;
-    private SaleAddAdapter mAdapter;
+    private BillProductShowAdapter mAdapter;
 
     private String billNumber;
 
@@ -77,7 +79,7 @@ public class NewBillDetail extends Fragment {
 
         recyclerView = view.findViewById(R.id.recyclerview);
         mLayoutManager = new LinearLayoutManager(context);
-        mAdapter = new SaleAddAdapter();
+        mAdapter = new BillProductShowAdapter();
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
 
@@ -107,11 +109,11 @@ public class NewBillDetail extends Fragment {
         txtBillNumber.setText(billModel.getBillNumber());
         txtDate.setText(billModel.getBillingDate());
         txtTotalPrice.setText(String.valueOf(billModel.getTotalPrice()));
-        List<ProductModel> model = billModel.getProductModels();
+        List<OrderedProductModel> model = billModel.getProductList();
         for (int i=0; i<model.size();i++){
             Log.i(TAG, "product list is "+model.get(i).getProductName());
 
         }
-        mAdapter.setProductItem(billModel.getProductModels());
+        mAdapter.setProductItem(billModel.getProductList());
     }
 }

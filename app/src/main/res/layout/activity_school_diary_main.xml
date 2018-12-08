@@ -39,7 +39,6 @@ tools:context=".activities.SchoolDiaryMainActivity">
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:layout_gravity="start|left"
-    app:headerLayout="@layout/navigation_header"
     app:menu="@menu/menu_nav_drawer"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

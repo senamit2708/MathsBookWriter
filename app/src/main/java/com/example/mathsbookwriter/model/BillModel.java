@@ -11,14 +11,14 @@ public class BillModel {
     String billingDate;
     float totalPrice;
     String status;
-    List<ProductModel> productList;
+    List<OrderedProductModel> productList;
 
 
 
     public BillModel() {
     }
 
-    public BillModel(String billNumber, String partyName, String billingDate,float totalPrice,String status, List<ProductModel> productList) {
+    public BillModel(String billNumber, String partyName, String billingDate,float totalPrice,String status, List<OrderedProductModel> productList) {
         this.billNumber = billNumber;
         this.partyName = partyName;
         this.billingDate = billingDate;
@@ -51,11 +51,11 @@ public class BillModel {
         this.billingDate = billingDate;
     }
 
-    public List<ProductModel> getProductModels() {
+    public List<OrderedProductModel> getProductList() {
         return productList;
     }
 
-    public void setProductModels(List<ProductModel> productList) {
+    public void setProductList(List<OrderedProductModel> productList) {
         this.productList = productList;
     }
 
