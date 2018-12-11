@@ -119,7 +119,7 @@ public class SaleAddFragment extends Fragment {
         totalPrice = calculateTotalPrice(productModelList);
 
 
-        String date = new SimpleDateFormat("dd-MM-YYYY", Locale.getDefault()).format(new Date());
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         txtDate.setText("Date: "+date);
         txtPartyName.setText(mViewModel.getPartyNameForSale());
         txtTotalPrice.setText(String.valueOf(totalPrice));

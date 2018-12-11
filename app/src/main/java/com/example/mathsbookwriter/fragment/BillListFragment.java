@@ -13,6 +13,7 @@ import com.example.mathsbookwriter.adapter.BillListAdapter;
 import com.example.mathsbookwriter.interfaces.BillListInterface;
 import com.example.mathsbookwriter.model.BillModel;
 import com.example.mathsbookwriter.viewModel.BillViewModel;
+import com.example.mathsbookwriter.viewModel.PartiesViewModel;
 
 import java.util.List;
 
@@ -32,12 +33,14 @@ public class BillListFragment extends Fragment implements BillListInterface {
 
     private Context context;
     private BillViewModel mViewModel;
+    private PartiesViewModel mPartyViewModel;
 
     private RecyclerView mRecyclerview;
     private RecyclerView.LayoutManager mLayoutManager;
     private BillListAdapter mAdapter;
 
     private Button btnHide;
+//    private Button btnPartyName;
 
     private String billStatus;
 
@@ -66,6 +69,7 @@ public class BillListFragment extends Fragment implements BillListInterface {
         mRecyclerview.setLayoutManager(mLayoutManager);
         mRecyclerview.setAdapter(mAdapter);
         btnHide = view.findViewById(R.id.btnHide);
+//        btnPartyName = view.findViewById(R.id.btnPartyName);
 
         mViewModel.getCurrentBillList(billStatus).observe(this, new Observer<List<BillModel>>() {
             @Override
@@ -77,8 +81,19 @@ public class BillListFragment extends Fragment implements BillListInterface {
             }
         });
 
+//        btnPartyName.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selectPartyName();
+//            }
+//        });
+
 
     }
+
+//    private void selectPartyName() {
+//        Navigation.findNavController(getActivity(),R.id.btnPartyName).navigate(R.id.action_billListFragment_to_partyNameListFragment);
+//    }
 
     @Override
     public void funLoadBillModel(BillModel bill) {

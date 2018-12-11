@@ -8,6 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Source;
 
 import javax.annotation.Nullable;
 
@@ -17,6 +18,7 @@ public class FirebaseQueryLiveData extends LiveData<QuerySnapshot> {
 
     private MyValueEventListener listener = new MyValueEventListener();
     private Query query;
+    Source source = Source.CACHE;
 
     private boolean listenerRemovePending = false;
     private ListenerRegistration registration;
@@ -53,12 +55,9 @@ public class FirebaseQueryLiveData extends LiveData<QuerySnapshot> {
     }
 
     private class MyValueEventListener implements EventListener<QuerySnapshot> {
-
-
         @Override
         public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
             setValue(queryDocumentSnapshots);
         }
     }
-
 }

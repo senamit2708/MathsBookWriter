@@ -63,6 +63,7 @@ public class BillMainFragment extends Fragment implements MainInventoryInterface
         status.add("Complete");
         status.add("Closed");
         status.add("All");
+        status.add("Party");
         mAdapter.setBillStatus(status);
 
     }
@@ -71,6 +72,9 @@ public class BillMainFragment extends Fragment implements MainInventoryInterface
     public void funLoadTopic(String topic) {
         Bundle bundle = new Bundle();
         bundle.putString(BILL_STATUS, topic);
+        if (topic.equals("party")){
+//            Navigation.findNavController(getActivity(), R.id.btnHide).navigate(R.id.);
+         }
         Navigation.findNavController(getActivity(), R.id.btnHide).navigate(R.id.action_billMainFragment_to_billListFragment, bundle);
     }
 }

@@ -142,5 +142,13 @@
         <action
             android:id="@+id/action_billMainFragment_to_billListFragment"
             app:destination="@id/billListFragment" />
+        <action
+            android:id="@+id/action_billMainFragment_to_billPartyNameList"
+            app:destination="@id/billPartyNameList" />
     </fragment>
+    <fragment
+        android:id="@+id/billPartyNameList"
+        android:name="com.example.mathsbookwriter.fragment.BillPartyNameList"
+        android:label="activity_bill_party_name_ist"
+        tools:layout="@layout/activity_bill_party_name_ist" />
 </navigation>
